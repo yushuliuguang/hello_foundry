@@ -1,0 +1,10 @@
+No files changed, compilation skipped
+
+Ran 4 tests for test/day8_Bank.t.sol:BankTest
+[PASS] test_deposit() (gas: 148120)
+[PASS] test_sort() (gas: 337622)
+[PASS] test_withdraw_admin() (gas: 86923)
+[PASS] test_withdraw_not_admin() (gas: 79814)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 1.81ms (1.15ms CPU time)
+
+Ran 1 test suite in 14.48ms (1.81ms CPU time): 4 tests passed, 0 failed, 0 skipped (4 total tests)
