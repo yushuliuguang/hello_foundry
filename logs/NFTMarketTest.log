@@ -1,13 +1,39 @@
 No files changed, compilation skipped
 
-Ran 7 tests for test/day8_NFTMarket.t.sol:NFTMarketTest
+Ran 8 tests for test/day8_NFTMarket.t.sol:NFTMarketTest
+[PASS] invariant_marktHasNotToken() (runs: 256, calls: 128000, reverts: 92769)
+
+╭-------------+-------------------+-------+---------+----------╮
+| Contract    | Selector          | Calls | Reverts | Discards |
++==============================================================+
+| TokenERC20  | approve           | 11761 | 0       | 0        |
+|-------------+-------------------+-------+---------+----------|
+| TokenERC20  | transfer          | 11547 | 11400   | 0        |
+|-------------+-------------------+-------+---------+----------|
+| TokenERC20  | transferFrom      | 11650 | 11528   | 0        |
+|-------------+-------------------+-------+---------+----------|
+| NFTMarket   | buyNFT            | 11595 | 11595   | 0        |
+|-------------+-------------------+-------+---------+----------|
+| NFTMarket   | list              | 11841 | 11841   | 0        |
+|-------------+-------------------+-------+---------+----------|
+| TokenERC721 | approve           | 11675 | 11675   | 0        |
+|-------------+-------------------+-------+---------+----------|
+| TokenERC721 | mint              | 11432 | 16      | 0        |
+|-------------+-------------------+-------+---------+----------|
+| TokenERC721 | safeTransferFrom  | 23120 | 23120   | 0        |
+|-------------+-------------------+-------+---------+----------|
+| TokenERC721 | setApprovalForAll | 11789 | 4       | 0        |
+|-------------+-------------------+-------+---------+----------|
+| TokenERC721 | transferFrom      | 11590 | 11590   | 0        |
+╰-------------+-------------------+-------+---------+----------╯
+
 [PASS] testFuzz_listAndBuy(uint256,address) (runs: 257, μ: 297951, ~: 297950)
-[PASS] test_buy_lessToken() (gas: 297680)
+[PASS] test_buy_lessToken() (gas: 297702)
 [PASS] test_buy_repeat() (gas: 316703)
 [PASS] test_buy_self() (gas: 348108)
-[PASS] test_buy_success() (gas: 320383)
-[PASS] test_list_fail() (gas: 147773)
+[PASS] test_buy_success() (gas: 320400)
+[PASS] test_list_fail() (gas: 147663)
 [PASS] test_list_success() (gas: 234492)
-Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 140.18ms (140.97ms CPU time)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 3.82s (4.00s CPU time)
 
-Ran 1 test suite in 148.69ms (140.18ms CPU time): 7 tests passed, 0 failed, 0 skipped (7 total tests)
+Ran 1 test suite in 3.84s (3.82s CPU time): 8 tests passed, 0 failed, 0 skipped (8 total tests)
