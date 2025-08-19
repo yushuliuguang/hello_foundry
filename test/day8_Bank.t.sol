@@ -1,13 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "forge-std/Test.sol";
-import "../src/day3_Bank.sol";
+import {Test} from "forge-std/Test.sol";
+import {Bank} from "../src/day3_Bank.sol";
 
 contract BankTest is Test {
     Bank public bank;
     Bank public bankUser1;
-    address public admin;
     address public user1;
     address public user2;
     address public user3;
@@ -96,7 +95,7 @@ contract BankTest is Test {
         assertEq(bank.top3(1), user3);
         assertEq(bank.top3(2), user4);
     }
-    // 3. 检查只有管理员可取款，其他人不可以取款。  请提交 github 仓库，仓库中需包含运行 case 通过的日志。
+    // 3. 检查只有管理员可取款，其他人不可以取款。
     function test_withdraw_admin() public{
         vm.deal(user1, 0 ether);
         vm.deal(user2, 100 ether);

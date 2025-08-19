@@ -1,0 +1,39 @@
+No files changed, compilation skipped
+
+Ran 8 tests for test/day8_NFTMarket.t.sol:NFTMarketTest
+[PASS] invariant_marktHasNotToken() (runs: 256, calls: 128000, reverts: 92959)
+
+╭-------------+-------------------+-------+---------+----------╮
+| Contract    | Selector          | Calls | Reverts | Discards |
++==============================================================+
+| TokenERC20  | approve           | 11575 | 0       | 0        |
+|-------------+-------------------+-------+---------+----------|
+| TokenERC20  | transfer          | 11749 | 11605   | 0        |
+|-------------+-------------------+-------+---------+----------|
+| TokenERC20  | transferFrom      | 11659 | 11527   | 0        |
+|-------------+-------------------+-------+---------+----------|
+| NFTMarket   | buyNFT            | 11537 | 11537   | 0        |
+|-------------+-------------------+-------+---------+----------|
+| NFTMarket   | list              | 11684 | 11684   | 0        |
+|-------------+-------------------+-------+---------+----------|
+| TokenERC721 | approve           | 11769 | 11769   | 0        |
+|-------------+-------------------+-------+---------+----------|
+| TokenERC721 | mint              | 11554 | 8       | 0        |
+|-------------+-------------------+-------+---------+----------|
+| TokenERC721 | safeTransferFrom  | 23263 | 23263   | 0        |
+|-------------+-------------------+-------+---------+----------|
+| TokenERC721 | setApprovalForAll | 11647 | 3       | 0        |
+|-------------+-------------------+-------+---------+----------|
+| TokenERC721 | transferFrom      | 11563 | 11563   | 0        |
+╰-------------+-------------------+-------+---------+----------╯
+
+[PASS] testFuzz_listAndBuy(uint256,address) (runs: 257, μ: 297951, ~: 297950)
+[PASS] test_buy_lessToken() (gas: 297702)
+[PASS] test_buy_repeat() (gas: 316703)
+[PASS] test_buy_self() (gas: 348108)
+[PASS] test_buy_success() (gas: 320400)
+[PASS] test_list_fail() (gas: 147663)
+[PASS] test_list_success() (gas: 234492)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 3.65s (3.82s CPU time)
+
+Ran 1 test suite in 3.66s (3.65s CPU time): 8 tests passed, 0 failed, 0 skipped (8 total tests)
