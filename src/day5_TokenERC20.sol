@@ -14,12 +14,12 @@ contract TokenERC20{
 
     uint256 totalSupply;
 
-    constructor(uint256 _initialSupply) {
+    constructor(address to, uint256 _initialSupply) {
         name="MyTokenERC20";
         symbol="MTE20";
         decimals=18;
         totalSupply=_initialSupply*10**decimals;
-        balanceOf[msg.sender]=totalSupply;
+        balanceOf[to]=totalSupply;
     }
 
     function transfer(address _to, uint256 _value) public returns (bool success){
