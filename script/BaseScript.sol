@@ -11,13 +11,18 @@ abstract contract BaseScript is Script {
     string internal mnemonic;
 
     function setUp() public virtual {
-        mnemonic = vm.envString("MNEMONIC");
-        (deployer, ) = deriveRememberKey(mnemonic, 0);
-        console.log("deployer: %s", deployer);
+        //sender:本地网络使用PRIVATE_KEY（anvil生成的私钥），远程网络使用MNEMONIC（助记词）
+        if(isAnvilNetwork()){
+            uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+            deployer = vm.addr(deployerPrivateKey);
+            console.log("user: %s", deployer);
+        }else{
+            mnemonic = vm.envString("MNEMONIC");
+            (deployer, ) = deriveRememberKey(mnemonic, 0);
+            console.log("deployer: %s", deployer);
+        }
 
-        uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
-        user = vm.addr(deployerPrivateKey);
-        console.log("user: %s", user);
+        
     }
 
 
@@ -31,10 +36,23 @@ abstract contract BaseScript is Script {
     }
 
     modifier broadcaster() {
-        //sender:本地网络使用user（anvil生成的私钥），远程网络使用deployer（助记词）
-        // vm.startBroadcast(deployer);
         vm.startBroadcast(deployer);
         _;
         vm.stopBroadcast();
+    }
+    function isContract(address account) internal view returns (bool) {
+        // This method relies in extcodesize, which returns 0 for contracts in
+        // construction, since the code is only stored at the end of the
+        // constructor execution.
+
+        uint256 size;
+        // solhint-disable-next-line no-inline-assembly
+        assembly { size := extcodesize(account) }
+        return size > 0;
+    }
+
+    function isAnvilNetwork() internal view returns (bool) {
+        // anvil 默认 chainid 为 31337
+        return block.chainid == 31337;
     }
 }

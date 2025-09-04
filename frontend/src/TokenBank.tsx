@@ -41,7 +41,7 @@ function TokenBank() {
   //   chain: sepolia,
   //   transport: http('https://eth-sepolia.public.blastapi.io'),
   // });
-  console.log(publicClient)
+  //console.log(publicClient)
 
   
   const linkToMetaMask = async function(){
@@ -133,20 +133,7 @@ function TokenBank() {
     }
     setOutAmount(v.toString())
   }
-  const getBalance:() => void =  () => {
-    if (userAddr == '')
-     return
-    //查询账户余额
-    async function getBalanceFromTokenContract(){
-      const balance:any = await publicClient.getBalance({ 
-        address: userAddr as `0x${string}`,
-      })
-      console.log("当前余额："+balance)
-      setBalance(balance)
-    }
-    getBalanceFromTokenContract()
-  }
-  //seEffect(getBalance,[])
+  
 
   const deposit = async function(){
     //存款approv+deposit

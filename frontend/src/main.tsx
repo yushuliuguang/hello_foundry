@@ -4,6 +4,7 @@ import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 import TokenBank from './TokenBank.tsx'
+import NFTMarketLisner from './NFTMarketEventLisner.tsx'
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,9 @@ const router = createBrowserRouter([
   {
     path:"tokenBank",
     element:<TokenBank/>
+  },{
+    path:"NFTMarketEventListner",
+    element:<NFTMarketLisner/>
   }
 ])
 
