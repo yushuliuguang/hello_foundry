@@ -40,3 +40,110 @@
 .read-the-docs {
   color: #888;
 }
+
+/* 钱包连接样式 */
+.header {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.wallet-connect {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.connect-btn, .disconnect-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.connect-btn:hover, .disconnect-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.disconnect-btn {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+}
+
+.wallet-info {
+  color: white;
+  font-size: 14px;
+}
+
+.wallet-info p {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+}
+
+.wallet-status {
+  background: rgba(46, 204, 113, 0.1);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 20px 0;
+  color: #27ae60;
+}
+
+.wallet-status p {
+  margin: 4px 0;
+  font-family: 'Courier New', monospace;
+}
+
+/* 钱包详细信息样式 */
+.wallet-info-details {
+  margin-top: 16px;
+  text-align: left;
+}
+
+.wallet-info-details h3 {
+  margin: 0 0 12px 0;
+  color: #27ae60;
+  font-size: 16px;
+}
+
+.info-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(248, 2, 2, 0.05);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-item label {
+  font-weight: 500;
+  color: #3ca4e9;
+  font-size: 14px;
+}
+
+.info-item span {
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  color: #1ed45a;
+}
+
+.address {
+  word-break: break-all;
+  max-width: 200px;
+}

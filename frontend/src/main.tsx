@@ -3,8 +3,14 @@ import { createRoot } from 'react-dom/client'
 import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
+import NFTMarket from './NFTMarket.tsx'
 import TokenBank from './TokenBank.tsx'
 import NFTMarketLisner from './NFTMarketEventLisner.tsx'
+import { AppKitProvider } from './config/appkit.tsx'
+import WalletConnect from './components/WalletConnect.tsx'
+import WalletInfo from './components/WalletInfo.tsx'
+
+
 
 const router = createBrowserRouter([
   {
@@ -21,11 +27,22 @@ const router = createBrowserRouter([
   },{
     path:"NFTMarketEventListner",
     element:<NFTMarketLisner/>
-  }
+  },{
+    path:"walletConnect",
+    element:<WalletConnect/>
+  },{
+    path:"walletInfo",
+    element:<WalletInfo/>
+  },{
+    path:"NFTMarket",
+    element:<NFTMarket/>
+  },
 ])
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <AppKitProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AppKitProvider>
   </StrictMode>,
 )
