@@ -12,15 +12,15 @@ abstract contract BaseScript is Script {
 
     function setUp() public virtual {
         //sender:本地网络使用PRIVATE_KEY（anvil生成的私钥），远程网络使用MNEMONIC（助记词）
-        if(isAnvilNetwork()){
-            uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
-            deployer = vm.addr(deployerPrivateKey);
-            console.log("user: %s", deployer);
-        }else{
+        // if(isAnvilNetwork()){
+        //     uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+        //     deployer = vm.addr(deployerPrivateKey);
+        //     console.log("user: %s", deployer);
+        // }else{
             mnemonic = vm.envString("MNEMONIC");
             (deployer, ) = deriveRememberKey(mnemonic, 0);
             console.log("deployer: %s", deployer);
-        }
+        // }
 
         
     }
@@ -52,7 +52,7 @@ abstract contract BaseScript is Script {
     }
 
     function isAnvilNetwork() internal view returns (bool) {
-        // anvil 默认 chainid 为 31337
-        return block.chainid == 31337;
+        // anvil 默认 chainid 为 31337，但分叉网络会保持原网络的 chainid
+        return block.chainid == 31337 ;
     }
 }

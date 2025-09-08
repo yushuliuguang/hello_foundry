@@ -2,6 +2,7 @@
 src = "src"
 out = "out"
 libs = ["lib"]
+always_use_create_2_factory = true
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
 solc-version = "0.8.25"
@@ -11,11 +12,9 @@ solc-version = "0.8.25"
 # 使用中间表示
 # via_ir = true
 
-
 fs_permissions = [
     { access = "write", path = "./deployments" }
 ]
-
 
 [rpc_endpoints]
 sepolia = "${SEPOLIA_RPC_URL}"
@@ -23,5 +22,13 @@ sepolia = "${SEPOLIA_RPC_URL}"
 local8545 = "http://127.0.0.1:8545"
 #optimism = "${OPTIMISM_RPC_URL}"
 
+# 添加一些免费的备用 RPC 端点
+sepolia_alchemy = "https://eth-sepolia.g.alchemy.com/v2/demo"
+sepolia_infura = "https://sepolia.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"
+
 [etherscan]
 sepolia={key="${ETHERSCAN_API_KEY}",url="https://api-sepolia.etherscan.io/api"}
+
+# 网络超时配置
+[profile.default.tool]
+forge = { timeout = 300 }  # 5分钟超时

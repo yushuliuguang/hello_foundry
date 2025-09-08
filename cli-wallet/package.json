@@ -1,0 +1,23 @@
+{
+  "name": "cli-wallet",
+  "version": "1.0.0",
+  "description": "基于 Viem.js 的命令行钱包",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10",
+    "viem": "^2.37.4"
+  },
+  "keywords": [
+    "wallet",
+    "ethereum",
+    "viem",
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT"
+}
