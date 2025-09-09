@@ -17,7 +17,7 @@ contract Bank is IBank{
 
     //设置管理员
     constructor() payable {
-        admin = msg.sender;
+        admin = 0xC5BDc0CB4d71d17A02581D382F262E13E35294cB;
     }
 
     receive() external payable virtual{
