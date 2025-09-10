@@ -12,7 +12,7 @@ contract SimpleMultisigWallet {
     mapping(uint256=>Proposal) public proposalMap;
     uint256 public ids;//proposalId
 
-    //remix测试数据 【0x5B38Da6a701c568545dCfcB03FcB875f56beddC4,0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2,0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db],2
+    //remix测试数据 [0x5B38Da6a701c568545dCfcB03FcB875f56beddC4,0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2,0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db],2
     constructor(address[] memory _admins,uint8 _threshold){
         threshold=_threshold;
         admins=_admins;
