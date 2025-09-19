@@ -1,0 +1,51 @@
+No files changed, compilation skipped
+
+Ran 4 tests for test/day12_NFTMarket_Permit.t.sol:NFTMarketTest
+[PASS] invariant_marktHasNotToken() (runs: 256, calls: 128000, reverts: 95663)
+
+╭------------------+-------------------+-------+---------+----------╮
+| Contract         | Selector          | Calls | Reverts | Discards |
++===================================================================+
+| NFTMarket_Permit | buyNFT            | 10601 | 10601   | 0        |
+|------------------+-------------------+-------+---------+----------|
+| NFTMarket_Permit | list              | 10663 | 10663   | 0        |
+|------------------+-------------------+-------+---------+----------|
+| NFTMarket_Permit | permitBuy         | 10743 | 10743   | 0        |
+|------------------+-------------------+-------+---------+----------|
+| TokenERC20       | approve           | 10755 | 0       | 0        |
+|------------------+-------------------+-------+---------+----------|
+| TokenERC20       | transfer          | 10629 | 10489   | 0        |
+|------------------+-------------------+-------+---------+----------|
+| TokenERC20       | transferFrom      | 10653 | 10506   | 0        |
+|------------------+-------------------+-------+---------+----------|
+| TokenERC721      | approve           | 10621 | 10621   | 0        |
+|------------------+-------------------+-------+---------+----------|
+| TokenERC721      | mint              | 10648 | 14      | 0        |
+|------------------+-------------------+-------+---------+----------|
+| TokenERC721      | safeTransferFrom  | 21326 | 21326   | 0        |
+|------------------+-------------------+-------+---------+----------|
+| TokenERC721      | setApprovalForAll | 10661 | 0       | 0        |
+|------------------+-------------------+-------+---------+----------|
+| TokenERC721      | transferFrom      | 10700 | 10700   | 0        |
+╰------------------+-------------------+-------+---------+----------╯
+
+[PASS] testFuzz_permitBuy(uint256,address) (runs: 258, μ: 329950, ~: 329948)
+[PASS] test_permitBuy_fail() (gas: 519403)
+[PASS] test_permitBuy_success() (gas: 376274)
+Logs:
+  --start--
+  balance of customer:10
+  balance of saler:0
+  owner of nft:0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+  --listed--
+  balance of customer:10
+  balance of saler:0
+  owner of nft:0xF62849F9A0B5Bf2913b396098F7c7019b51A820a
+  --permitBuy--
+  balance of customer:0
+  balance of saler:10
+  owner of nft:0x94658EC7EF791214E423F484C6374f2B96ff50eE
+
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 3.51s (3.73s CPU time)
+
+Ran 1 test suite in 3.52s (3.51s CPU time): 4 tests passed, 0 failed, 0 skipped (4 total tests)
