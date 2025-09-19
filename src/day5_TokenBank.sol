@@ -18,18 +18,21 @@ contract TokenBank{
     }
 
     function deposit(uint256 amount) external{
-        require(amount>0,"Amount must be greater than 0");
-        require(token.balanceOf(msg.sender)>=amount,"balance of token insufficent");
-        require(token.allowance(msg.sender,address(this))>=amount,"allowance insufficent");
-        bool success = token.transferFrom(msg.sender,address(this),amount);
-        require(success,"transfer from user to bank failed");
-        records[msg.sender]+=amount;
+       _deposit(amount);
     }
     function withdraw(uint256 amount) external{
         require(amount<=records[msg.sender],"Not enough balance");
         bool success = token.transfer(msg.sender,amount);
         require(success,"transfer from bank to user failed");
         records[msg.sender]-=amount;
+    }
+    function _deposit(uint256 amount) internal{
+        require(amount>0,"Amount must be greater than 0");
+        require(token.balanceOf(msg.sender)>=amount,"balance of token insufficent");
+        require(token.allowance(msg.sender,address(this))>=amount,"allowance insufficent");
+        bool success = token.transferFrom(msg.sender,address(this),amount);
+        require(success,"transfer from user to bank failed");
+        records[msg.sender]+=amount;
     }
 
 }
