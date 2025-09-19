@@ -61,6 +61,9 @@ contract NFTMarket {
 
     //购买
     function buyNFT(uint256 id) external {
+        _buyNft(id);
+    }
+    function _buyNft(uint256 id) internal{
         NFTInfo memory info = priceList[id];
         //买卖双方是否相同
         require(msg.sender != info.owner,"the saler buy the NFT himself");

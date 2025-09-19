@@ -17,10 +17,11 @@ contract NFTMarketTest is Test {
     address public customer;
 
     function setUp() public {
-        tokenContract = new TokenERC20(10**10);
+        saler=0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266;
+        customer=0x94658EC7EF791214E423F484C6374f2B96ff50eE;
+        tokenContract = new TokenERC20(address(this),10**10);
         nftContract = new TokenERC721("nft","nft",baseURI);
-        saler=0x94658EC7EF791214E423F484C6374f2B96ff50eE;
-        customer=0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266;
+        
         // user3=0x70997970C51812dc3A010C7d01b50e0d17dc79C8;
         // user4=0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC;
         //vm.prank(user1);

@@ -9,7 +9,7 @@ import NFTMarketLisner from './NFTMarketEventLisner.tsx'
 import { AppKitProvider } from './config/appkit.tsx'
 import WalletConnect from './components/WalletConnect.tsx'
 import WalletInfo from './components/WalletInfo.tsx'
-
+import TokenBank_Permit from './TokenBank_Permit.tsx'
 
 
 const router = createBrowserRouter([
@@ -36,7 +36,10 @@ const router = createBrowserRouter([
   },{
     path:"NFTMarket",
     element:<NFTMarket/>
-  },
+  },{
+    path:"tokenBank_Permit",
+    element:<TokenBank_Permit/>
+  }
 ])
 
 createRoot(document.getElementById('root')!).render(
