@@ -12,7 +12,7 @@ const queryClient = new QueryClient()
 
 // 创建 AppKit 实例
 const projectId = 'd359f0d7aa03c6f43692845e210b13ac'
-const networks:[AppKitNetwork,...AppKitNetwork[]] = [foundry]
+const networks:[AppKitNetwork,...AppKitNetwork[]] = [foundry,sepolia]
 const wagmiAdapter = new WagmiAdapter({
   networks,
   projectId,

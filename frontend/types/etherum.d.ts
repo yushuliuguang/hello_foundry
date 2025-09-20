@@ -21,5 +21,11 @@ declare global {
   }
 }
 
+// 声明 JSON 模块
+declare module '*.json' {
+  const value: any;
+  export default value;
+}
+
 // 确保文件被当作模块处理
 export {};

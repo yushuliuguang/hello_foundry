@@ -10,7 +10,7 @@ import { AppKitProvider } from './config/appkit.tsx'
 import WalletConnect from './components/WalletConnect.tsx'
 import WalletInfo from './components/WalletInfo.tsx'
 import TokenBank_Permit from './TokenBank_Permit.tsx'
-
+import TokenBank_Permit2 from './TokenBank_Permit2.tsx'
 
 const router = createBrowserRouter([
   {
@@ -39,6 +39,9 @@ const router = createBrowserRouter([
   },{
     path:"tokenBank_Permit",
     element:<TokenBank_Permit/>
+  },{
+    path:"tokenBank_Permit2",
+    element:<TokenBank_Permit2/>
   }
 ])
 
